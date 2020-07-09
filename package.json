@@ -54,5 +54,8 @@
   "bin": {
     "straw": "cli.js"
   },
-  "homepage": "https://github.com/igvteam/hic-straw#readme"
+  "homepage": "https://github.com/igvteam/hic-straw#readme",
+  "dependencies": {
+    "pako": "^1.0.11"
+  }
 }

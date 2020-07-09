@@ -1,4 +1,4 @@
-import Zlib from "./vendor/zlib_and_gzip.js"
+import pako from "pako"
 import crossFetch from "./io/crossFetch.js"
 import BrowserLocalFile from './io/browserLocalFile.js';
 import NodeLocalFile from "./io/nodeLocalFile.js";
@@ -383,8 +383,7 @@ class HicFile {
                 return undefined;
             }
 
-            const inflate = new Zlib.Inflate(new Uint8Array(data));
-            const plain = inflate.decompress();
+            const plain = new pako.inflate(new Uint8Array(data));
             //var plain = zlib.inflateSync(Buffer.from(data))   //.decompress();
             data = plain.buffer;
 
